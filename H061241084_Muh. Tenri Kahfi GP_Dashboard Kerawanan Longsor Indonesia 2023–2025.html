@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dashboard Eksekutif Kerawanan Longsor Indonesia 2023–2025</title>
+<style>
+:root{--bg:#f4f6f9;--card:#fff;--ink:#14263d;--mut:#5b6b7e;--line:#dde3ea;--acc:#1f3a5f;--acc2:#14899b;--up:#c0392b;--dn:#1e8e5a;--warn:#fff6e0;--warnb:#e0a030;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1621;--card:#16202e;--ink:#e8eef5;--mut:#9aabbd;--line:#2a384a;--acc:#7fb0e6;--acc2:#3cc0d2;--up:#ff7b6b;--dn:#4fd193;--warn:#2b2412;--warnb:#c8932c}}
+:root[data-theme="dark"]{--bg:#0e1621;--card:#16202e;--ink:#e8eef5;--mut:#9aabbd;--line:#2a384a;--acc:#7fb0e6;--acc2:#3cc0d2;--up:#ff7b6b;--dn:#4fd193;--warn:#2b2412;--warnb:#c8932c}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 Inter,"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif}
+.wrap{max-width:1360px;margin:0 auto;padding:20px}
+header{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;align-items:flex-end;margin-bottom:14px}
+h1{margin:0;font-size:1.7rem;color:var(--acc)}h1+p{margin:4px 0 0;color:var(--mut)}
+h2{font-size:1.05rem;margin:0 0 10px}
+.note{background:var(--warn);border-left:4px solid var(--warnb);padding:10px 14px;border-radius:8px;margin-bottom:14px;font-size:.92rem}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:16px;display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end}
+.fg{display:flex;flex-direction:column;gap:4px}.fg label{font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;color:var(--mut);font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:5px}
+.chip{border:1px solid var(--line);background:transparent;color:var(--mut);border-radius:999px;padding:4px 11px;font:inherit;font-size:.85rem;cursor:pointer}
+.chip.on{background:var(--acc);border-color:var(--acc);color:#fff}
+:root[data-theme="dark"] .chip.on{color:#0e1621}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .chip.on{color:#0e1621}}
+select,.btn{font:inherit;font-size:.9rem;padding:6px 10px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+.btn{cursor:pointer}.btn.p{background:var(--acc2);border-color:var(--acc2);color:#fff}
+.tg{display:flex;gap:6px;align-items:center;font-size:.9rem}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+.k small.l{color:var(--mut);font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;font-weight:600}
+.k .v{font-size:2rem;font-weight:700;color:var(--acc);line-height:1.2;margin:4px 0;word-break:break-word}
+.k .s{font-size:.85rem;color:var(--mut)}.tr{font-weight:700}.up{color:var(--up)}.dn{color:var(--dn)}
+.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:14px;margin-bottom:16px}
+.cv{position:relative;height:320px}
+.ins{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin-bottom:16px}
+.ins .card{border-top:4px solid var(--acc2)}.ins .t{font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;color:var(--acc2);font-weight:700}
+.ins b{display:block;margin:4px 0}.ins p{margin:0;color:var(--mut);font-size:.93rem}
+details summary{cursor:pointer;font-weight:600;color:var(--acc)}
+.tw{overflow-x:auto;margin-top:10px;max-height:480px}table{border-collapse:collapse;width:100%;font-size:.88rem}
+th,td{padding:6px 10px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}th{position:sticky;top:0;background:var(--card)}td.n{text-align:right}
+footer{color:var(--mut);font-size:.82rem;margin-top:18px}a{color:var(--acc2)}
+@media (max-width:520px){.g{grid-template-columns:1fr}.wrap{padding:12px}}
+@media print{.bar,.btn{display:none}body{background:#fff}}
+</style>
+</head>
+<body><div class="wrap">
+<header>
+ <div><h1>Dashboard Kerawanan Longsor Indonesia</h1>
+ <p>Jumlah kejadian longsor per provinsi · 2023–2025 · Sumber: BPS &amp; BNPB · Data hingga rilis BPS 2025</p></div>
+ <div><button class="btn" onclick="window.print()">Cetak</button></div>
+</header>
+<div class="note" id="note"></div>
+<div class="bar">
+ <div class="fg"><label>Tahun</label><div class="chips" id="fT"></div></div>
+ <div class="fg"><label>Wilayah</label><div class="chips" id="fW"></div></div>
+ <div class="fg"><label>Kelas frekuensi</label><div class="chips" id="fK"></div></div>
+ <div class="fg"><label>Status data</label><div class="chips" id="fS"></div></div>
+ <div class="fg"><label>Provinsi</label><select id="fP"></select></div>
+ <label class="tg"><input type="checkbox" id="fB" checked> Hanya panel seimbang</label>
+ <button class="btn p" id="rst">Reset filter</button>
+</div>
+<div class="kpis" id="kpis"></div>
+<div class="g">
+ <div class="card"><h2>Tren kejadian per tahun</h2><div class="cv"><canvas id="c1"></canvas></div></div>
+ <div class="card"><h2>Kejadian per wilayah (bertumpuk per tahun)</h2><div class="cv"><canvas id="c2"></canvas></div></div>
+ <div class="card"><h2>10 provinsi dengan kejadian terbanyak</h2><div class="cv"><canvas id="c3"></canvas></div></div>
+ <div class="card"><h2 id="chgT">Perubahan kejadian antar tahun</h2><div class="cv"><canvas id="c4"></canvas></div></div>
+ <div class="card"><h2>Sebaran kelas frekuensi (provinsi-tahun)</h2><div class="cv"><canvas id="c5"></canvas></div></div>
+ <div class="card"><h2>Langganan hotspot: riwayat BNPB 2014–2023 vs periode terpilih</h2><div class="cv"><canvas id="c6"></canvas></div></div>
+</div>
+<h2>Temuan kunci &amp; rekomendasi untuk pimpinan</h2>
+<div class="ins" id="ins"></div>
+<div class="card"><details><summary>Tabel data rinci (klik untuk membuka)</summary><div class="tw"><table><thead><tr><th>Tahun</th><th>Provinsi</th><th>Wilayah</th><th>Kejadian</th><th>Kelas</th><th>Status</th><th>Sumber</th></tr></thead><tbody id="tb"></tbody></table></div></details></div>
+<footer>Catatan metodologi: kelas “Tinggi” (≥ 50 kejadian/tahun) dan “Sedang” (≥ 10) memakai ambang asumsi penyusun data, bukan standar resmi. Tanda ‘–’ pada tabel BPS dicatat sebagai 0. Dataset: 59 catatan provinsi-tahun (BPS, BNPB). Data tertanam langsung di berkas ini (JSON); grafik memakai Chart.js via CDN.</footer>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+/* ===== Data tertanam: t=tahun, w=wilayah, p=provinsi, n=kejadian, k=kelas, s=status, b=panel seimbang, pv=tahun sebelumnya, h=BNPB 2014-2023, u=URL sumber ===== */
+const D=[{"t":2023,"w":"Sumatera","p":"Aceh","n":9,"k":"Rendah","s":"Rilis BPS","b":false,"pv":null,"h":82,"u":"S04"},{"t":2023,"w":"Sumatera","p":"Sumatera Utara","n":19,"k":"Sedang","s":"Rilis BPS","b":false,"pv":null,"h":104,"u":"S04"},{"t":2023,"w":"Sumatera","p":"Sumatera Barat","n":14,"k":"Sedang","s":"Rilis BPS","b":false,"pv":null,"h":201,"u":"S04"},{"t":2023,"w":"Sumatera","p":"Riau","n":3,"k":"Rendah","s":"Rilis BPS","b":false,"pv":null,"h":null,"u":"S04"},{"t":2023,"w":"Sumatera","p":"Jambi","n":4,"k":"Rendah","s":"Rilis BPS","b":false,"pv":null,"h":null,"u":"S04"},{"t":2023,"w":"Sumatera","p":"Sumatera Selatan","n":3,"k":"Rendah","s":"Rilis BPS","b":false,"pv":null,"h":null,"u":"S04"},{"t":2023,"w":"Sumatera","p":"Bengkulu","n":6,"k":"Rendah","s":"Rilis BPS","b":false,"pv":null,"h":null,"u":"S04"},{"t":2023,"w":"Sumatera","p":"Lampung","n":3,"k":"Rendah","s":"Rilis BPS","b":false,"pv":null,"h":null,"u":"S04"},{"t":2023,"w":"Sumatera","p":"Kepulauan Bangka Belitung","n":1,"k":"Rendah","s":"Rilis BPS","b":false,"pv":null,"h":null,"u":"S04"},{"t":2023,"w":"Sumatera","p":"Kepulauan Riau","n":2,"k":"Rendah","s":"Rilis BPS","b":false,"pv":null,"h":null,"u":"S04"},{"t":2023,"w":"Jawa","p":"DKI Jakarta","n":7,"k":"Rendah","s":"Rilis BPS","b":true,"pv":null,"h":null,"u":"S04"},{"t":2023,"w":"Jawa","p":"Jawa Barat","n":185,"k":"Tinggi","s":"Rilis BPS","b":true,"pv":null,"h":2440,"u":"S04"},{"t":2023,"w":"Jawa","p":"Jawa Tengah","n":125,"k":"Tinggi","s":"Rilis BPS","b":true,"pv":null,"h":2422,"u":"S04"},{"t":2023,"w":"Jawa","p":"DI Yogyakarta","n":24,"k":"Sedang","s":"Rilis BPS","b":true,"pv":null,"h":93,"u":"S04"},{"t":2023,"w":"Jawa","p":"Jawa Timur","n":5,"k":"Rendah","s":"Rilis BPS","b":true,"pv":null,"h":642,"u":"S04"},{"t":2023,"w":"Jawa","p":"Banten","n":1,"k":"Rendah","s":"Rilis BPS","b":true,"pv":null,"h":null,"u":"S04"},{"t":2023,"w":"Bali & Nusa Tenggara","p":"Bali","n":23,"k":"Sedang","s":"Rilis BPS","b":true,"pv":null,"h":221,"u":"S04"},{"t":2023,"w":"Bali & Nusa Tenggara","p":"Nusa Tenggara Barat","n":24,"k":"Sedang","s":"Rilis BPS","b":true,"pv":null,"h":null,"u":"S04"},{"t":2023,"w":"Bali & Nusa Tenggara","p":"Nusa Tenggara Timur","n":10,"k":"Sedang","s":"Rilis BPS","b":true,"pv":null,"h":null,"u":"S04"},{"t":2023,"w":"Kalimantan","p":"Kalimantan Barat","n":2,"k":"Rendah","s":"Rilis BPS","b":true,"pv":null,"h":null,"u":"S04"},{"t":2023,"w":"Kalimantan","p":"Kalimantan Timur","n":26,"k":"Sedang","s":"Rilis BPS","b":true,"pv":null,"h":190,"u":"S04"},{"t":2023,"w":"Sulawesi","p":"Sulawesi Utara","n":2,"k":"Rendah","s":"Rilis BPS","b":false,"pv":null,"h":null,"u":"S04"},{"t":2023,"w":"Sulawesi","p":"Sulawesi Tengah","n":5,"k":"Rendah","s":"Rilis BPS","b":true,"pv":null,"h":null,"u":"S04"},{"t":2023,"w":"Sulawesi","p":"Sulawesi Selatan","n":32,"k":"Sedang","s":"Rilis BPS","b":true,"pv":null,"h":182,"u":"S04"},{"t":2023,"w":"Sulawesi","p":"Sulawesi Barat","n":17,"k":"Sedang","s":"Rilis BPS","b":true,"pv":null,"h":null,"u":"S04"},{"t":2024,"w":"Sumatera","p":"Aceh","n":2,"k":"Rendah","s":"Sementara","b":false,"pv":9,"h":82,"u":"S05"},{"t":2024,"w":"Sumatera","p":"Sumatera Utara","n":10,"k":"Sedang","s":"Sementara","b":false,"pv":19,"h":104,"u":"S05"},{"t":2024,"w":"Sumatera","p":"Sumatera Barat","n":8,"k":"Rendah","s":"Sementara","b":false,"pv":14,"h":201,"u":"S05"},{"t":2024,"w":"Sumatera","p":"Riau","n":1,"k":"Rendah","s":"Sementara","b":false,"pv":3,"h":null,"u":"S05"},{"t":2024,"w":"Sumatera","p":"Jambi","n":0,"k":"Rendah","s":"Sementara","b":false,"pv":4,"h":null,"u":"S05"},{"t":2024,"w":"Sumatera","p":"Sumatera Selatan","n":1,"k":"Rendah","s":"Sementara","b":false,"pv":3,"h":null,"u":"S05"},{"t":2024,"w":"Jawa","p":"DKI Jakarta","n":0,"k":"Rendah","s":"Sementara","b":true,"pv":7,"h":null,"u":"S05"},{"t":2024,"w":"Jawa","p":"Jawa Barat","n":50,"k":"Tinggi","s":"Sementara","b":true,"pv":185,"h":2440,"u":"S05"},{"t":2024,"w":"Jawa","p":"Jawa Tengah","n":19,"k":"Sedang","s":"Sementara","b":true,"pv":125,"h":2422,"u":"S05"},{"t":2024,"w":"Jawa","p":"DI Yogyakarta","n":0,"k":"Rendah","s":"Sementara","b":true,"pv":24,"h":93,"u":"S05"},{"t":2024,"w":"Jawa","p":"Jawa Timur","n":11,"k":"Sedang","s":"Sementara","b":true,"pv":5,"h":642,"u":"S05"},{"t":2024,"w":"Jawa","p":"Banten","n":3,"k":"Rendah","s":"Sementara","b":true,"pv":1,"h":null,"u":"S05"},{"t":2024,"w":"Bali & Nusa Tenggara","p":"Bali","n":5,"k":"Rendah","s":"Sementara","b":true,"pv":23,"h":221,"u":"S05"},{"t":2024,"w":"Bali & Nusa Tenggara","p":"Nusa Tenggara Barat","n":1,"k":"Rendah","s":"Sementara","b":true,"pv":24,"h":null,"u":"S05"},{"t":2024,"w":"Bali & Nusa Tenggara","p":"Nusa Tenggara Timur","n":4,"k":"Rendah","s":"Sementara","b":true,"pv":10,"h":null,"u":"S05"},{"t":2024,"w":"Kalimantan","p":"Kalimantan Barat","n":0,"k":"Rendah","s":"Sementara","b":true,"pv":2,"h":null,"u":"S05"},{"t":2024,"w":"Kalimantan","p":"Kalimantan Timur","n":0,"k":"Rendah","s":"Sementara","b":true,"pv":26,"h":190,"u":"S05"},{"t":2024,"w":"Sulawesi","p":"Sulawesi Tengah","n":1,"k":"Rendah","s":"Sementara","b":true,"pv":5,"h":null,"u":"S05"},{"t":2024,"w":"Sulawesi","p":"Sulawesi Selatan","n":7,"k":"Rendah","s":"Sementara","b":true,"pv":32,"h":182,"u":"S05"},{"t":2024,"w":"Sulawesi","p":"Sulawesi Barat","n":2,"k":"Rendah","s":"Sementara","b":true,"pv":17,"h":null,"u":"S05"},{"t":2025,"w":"Jawa","p":"DKI Jakarta","n":0,"k":"Rendah","s":"Rilis BPS","b":true,"pv":0,"h":null,"u":"S06"},{"t":2025,"w":"Jawa","p":"Jawa Barat","n":111,"k":"Tinggi","s":"Rilis BPS","b":true,"pv":50,"h":2440,"u":"S06"},{"t":2025,"w":"Jawa","p":"Jawa Tengah","n":45,"k":"Sedang","s":"Rilis BPS","b":true,"pv":19,"h":2422,"u":"S06"},{"t":2025,"w":"Jawa","p":"DI Yogyakarta","n":9,"k":"Rendah","s":"Rilis BPS","b":true,"pv":0,"h":93,"u":"S06"},{"t":2025,"w":"Jawa","p":"Jawa Timur","n":26,"k":"Sedang","s":"Rilis BPS","b":true,"pv":11,"h":642,"u":"S06"},{"t":2025,"w":"Jawa","p":"Banten","n":8,"k":"Rendah","s":"Rilis BPS","b":true,"pv":3,"h":null,"u":"S06"},{"t":2025,"w":"Bali & Nusa Tenggara","p":"Bali","n":4,"k":"Rendah","s":"Rilis BPS","b":true,"pv":5,"h":221,"u":"S06"},{"t":2025,"w":"Bali & Nusa Tenggara","p":"Nusa Tenggara Barat","n":2,"k":"Rendah","s":"Rilis BPS","b":true,"pv":1,"h":null,"u":"S06"},{"t":2025,"w":"Bali & Nusa Tenggara","p":"Nusa Tenggara Timur","n":15,"k":"Sedang","s":"Rilis BPS","b":true,"pv":4,"h":null,"u":"S06"},{"t":2025,"w":"Kalimantan","p":"Kalimantan Barat","n":0,"k":"Rendah","s":"Rilis BPS","b":true,"pv":0,"h":null,"u":"S06"},{"t":2025,"w":"Kalimantan","p":"Kalimantan Timur","n":16,"k":"Sedang","s":"Rilis BPS","b":true,"pv":0,"h":190,"u":"S06"},{"t":2025,"w":"Sulawesi","p":"Sulawesi Tengah","n":5,"k":"Rendah","s":"Rilis BPS","b":true,"pv":1,"h":null,"u":"S06"},{"t":2025,"w":"Sulawesi","p":"Sulawesi Selatan","n":14,"k":"Sedang","s":"Rilis BPS","b":true,"pv":7,"h":182,"u":"S06"},{"t":2025,"w":"Sulawesi","p":"Sulawesi Barat","n":7,"k":"Rendah","s":"Rilis BPS","b":true,"pv":2,"h":null,"u":"S06"}];
+const $=s=>document.querySelector(s),esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');
+const nf=v=>Math.round(v).toLocaleString('id-ID'),f1=v=>v.toLocaleString('id-ID',{maximumFractionDigits:1,minimumFractionDigits:1});
+const U=k=>[...new Set(D.map(r=>r[k]))],sum=(a,k='n')=>a.reduce((x,r)=>x+r[k],0);
+const YC={2023:'#9db4cc',2024:'#14899b',2025:'#1f3a5f'},KC={Tinggi:'#c0392b',Sedang:'#e0a030',Rendah:'#14899b'};
+const ALL=()=>({t:new Set(U('t')),w:new Set(U('w')),k:new Set(['Tinggi','Sedang','Rendah']),s:new Set(U('s'))});
+let S={...ALL(),bal:true,p:''};
+const cnt=y=>new Set(D.filter(r=>r.t===y).map(r=>r.p)).size,yrs=U('t').sort();
+$('#note').innerHTML='<b>Perhatian kualitas data:</b> jumlah provinsi tercatat berbeda tiap tahun ('+yrs.map(y=>y+': '+cnt(y)).join(', ')+'), sehingga total mentah antar-tahun <b>tidak sebanding</b>. Secara default dashboard memakai <b>panel seimbang</b> (14 provinsi yang ada di ketiga tahun). Angka 2024 berstatus sementara; cakupan periode 2025 tidak dinyatakan pada sumber, jadi jangan diperlakukan pasti setahun penuh.';
+function chips(id,key,vals,lab){const el=$(id);el.innerHTML=vals.map(v=>'<button class="chip on" data-v="'+esc(v)+'">'+esc(lab?lab(v):v)+'</button>').join('');
+ el.onclick=e=>{const b=e.target.closest('button');if(!b)return;const v=key==='t'?+b.dataset.v:b.dataset.v;S[key].has(v)?S[key].delete(v):S[key].add(v);b.classList.toggle('on');render()}}
+chips('#fT','t',yrs);chips('#fW','w',U('w').sort());chips('#fK','k',['Tinggi','Sedang','Rendah']);chips('#fS','s',U('s'),v=>v==='Sementara'?'Angka sementara':v);
+$('#fP').innerHTML='<option value="">Semua provinsi</option>'+U('p').sort().map(p=>'<option>'+esc(p)+'</option>').join('');
+$('#fP').onchange=e=>{S.p=e.target.value;render()};$('#fB').onchange=e=>{S.bal=e.target.checked;render()};
+$('#rst').onclick=()=>{S={...ALL(),bal:true,p:''};document.querySelectorAll('.chip').forEach(c=>c.classList.add('on'));$('#fP').value='';$('#fB').checked=true;render()};
+const filt=()=>D.filter(r=>S.t.has(r.t)&&S.w.has(r.w)&&S.k.has(r.k)&&S.s.has(r.s)&&(!S.bal||r.b)&&(!S.p||r.p===S.p));
+const grp=(R,k)=>{const m=new Map();R.forEach(r=>m.set(r[k],(m.get(r[k])||0)+r.n));return m};
+/* Perubahan like-for-like: tahun terakhir vs tahun sebelumnya, hanya provinsi yang ada di keduanya */
+function yoy(R){const ys=[...new Set(R.map(r=>r.t))].sort();if(ys.length<2)return null;const y1=ys[ys.length-1],y0=ys[ys.length-2];
+ const a=new Map(R.filter(r=>r.t===y0).map(r=>[r.p,r.n])),items=R.filter(r=>r.t===y1&&a.has(r.p)).map(r=>({p:r.p,d:r.n-a.get(r.p),c:r.n,o:a.get(r.p)}));
+ const cur=sum(items,'c'),old=sum(items,'o');return old?{y0,y1,items,cur,old,d:(cur-old)/old,np:items.length}:null}
+Chart.defaults.animation.duration=250;Chart.defaults.font.family='Inter,"Segoe UI",system-ui,sans-serif';Chart.defaults.font.size=13;
+function theme(){const c=getComputedStyle(document.documentElement);Chart.defaults.color=c.getPropertyValue('--mut').trim();Chart.defaults.borderColor=c.getPropertyValue('--line').trim()}
+theme();
+const ax=t=>({title:{display:!!t,text:t}});
+const mk=(id,cfg)=>new Chart($(id),{options:{responsive:true,maintainAspectRatio:false,...cfg.o},type:cfg.type,data:{labels:[],datasets:[]}});
+const c1=mk('#c1',{type:'bar',o:{scales:{y:{...ax('Total kejadian'),beginAtZero:true},y1:{...ax('Rata-rata per provinsi'),position:'right',beginAtZero:true,grid:{drawOnChartArea:false}}}}});
+const c2=mk('#c2',{type:'bar',o:{scales:{x:{stacked:true,...ax('Wilayah')},y:{stacked:true,...ax('Jumlah kejadian')}}}});
+const c3=mk('#c3',{type:'bar',o:{indexAxis:'y',scales:{x:{stacked:true,...ax('Jumlah kejadian')},y:{stacked:true}}}});
+const c4=mk('#c4',{type:'bar',o:{indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{...ax('Selisih jumlah kejadian')}}}});
+const c5=mk('#c5',{type:'doughnut',o:{plugins:{legend:{position:'bottom'}}}});
+const c6=mk('#c6',{type:'scatter',o:{plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.raw.l+': BNPB '+nf(c.raw.x)+' · periode '+nf(c.raw.y)}}},scales:{x:{...ax('Kejadian 2014–2023 (BNPB)')},y:{...ax('Kejadian periode terpilih'),beginAtZero:true}}}});
+matchMedia('(prefers-color-scheme:dark)').addEventListener('change',()=>{theme();render()});
+const set=(c,labels,ds)=>{c.data.labels=labels;c.data.datasets=ds;c.update()};
+function render(){
+ const R=filt(),tot=sum(R),ys=[...new Set(R.map(r=>r.t))].sort(),pt=[...grp(R,'p')].sort((a,b)=>b[1]-a[1]),Y=yoy(R);
+ const med=(()=>{const v=R.map(r=>r.n).sort((a,b)=>a-b),m=v.length>>1;return v.length?(v.length%2?v[m]:(v[m-1]+v[m])/2):0})();
+ const top3=pt.slice(0,3),sh3=tot?sum(top3.map(x=>({n:x[1]})))/tot*100:0,hi=R.filter(r=>r.k==='Tinggi').length;
+ const tr=Y?'<span class="tr '+(Y.d>0?'up':'dn')+'">'+(Y.d>0?'▲ ':'▼ ')+f1(Math.abs(Y.d*100))+'%</span> <span class="s">vs '+Y.y0+' ('+Y.np+' prov. sebanding)</span>':'<span class="s">Pilih ≥ 2 tahun untuk melihat tren</span>';
+ const K=[['Total kejadian longsor',nf(tot),tr],['Provinsi tercatat',pt.length,R.length+' catatan provinsi-tahun'],['Rata-rata per provinsi-tahun',R.length?f1(tot/R.length):'–','Median: '+f1(med)+' (sebaran sangat timpang)'],
+ ['Provinsi teratas',pt.length?esc(pt[0][0]):'–',pt.length?nf(pt[0][1])+' kejadian · '+f1(pt[0][1]/tot*100)+'% dari total':''],['Konsentrasi 3 provinsi teratas',tot?f1(sh3)+'%':'–',top3.map(x=>esc(x[0])).join(', ')],['Catatan kelas Tinggi',hi,'dari '+R.length+' catatan (≥ 50 kejadian/tahun)']];
+ $('#kpis').innerHTML=K.map(k=>'<div class="card k"><small class="l">'+k[0]+'</small><div class="v">'+k[1]+'</div><div>'+k[2]+'</div></div>').join('');
+ /* grafik */
+ const ct=ys.map(y=>sum(R.filter(r=>r.t===y)));
+ set(c1,ys,[{type:'bar',label:'Total kejadian',data:ct,backgroundColor:ys.map(y=>YC[y]),order:2},{type:'line',label:'Rata-rata per provinsi',data:ys.map((y,i)=>ct[i]/(R.filter(r=>r.t===y).length||1)),yAxisID:'y1',borderColor:'#e0a030',backgroundColor:'#e0a030',tension:.2,order:1}]);
+ const regs=[...grp(R,'w')].sort((a,b)=>b[1]-a[1]).map(x=>x[0]);
+ set(c2,regs,ys.map(y=>({label:String(y),backgroundColor:YC[y],data:regs.map(w=>sum(R.filter(r=>r.t===y&&r.w===w)))})));
+ const t10=pt.slice(0,10).map(x=>x[0]);
+ set(c3,t10,ys.map(y=>({label:String(y),backgroundColor:YC[y],data:t10.map(p=>sum(R.filter(r=>r.t===y&&r.p===p)))})));
+ const it=Y?Y.items.slice().sort((a,b)=>Math.abs(b.d)-Math.abs(a.d)).slice(0,12):[];
+ $('#chgT').textContent=Y?'Perubahan kejadian '+Y.y0+' → '+Y.y1+' (12 provinsi dengan selisih terbesar)':'Perubahan kejadian antar tahun (pilih ≥ 2 tahun)';
+ set(c4,it.map(x=>x.p),[{label:'Selisih',data:it.map(x=>x.d),backgroundColor:it.map(x=>x.d>0?'#c0392b':'#1e8e5a')}]);
+ set(c5,['Tinggi','Sedang','Rendah'],[{data:['Tinggi','Sedang','Rendah'].map(k=>R.filter(r=>r.k===k).length),backgroundColor:Object.values(KC),borderWidth:0}]);
+ const hm=new Map(D.filter(r=>r.h!=null).map(r=>[r.p,r.h]));
+ set(c6,[],[{label:'Provinsi',data:pt.filter(x=>hm.has(x[0])).map(x=>({x:hm.get(x[0]),y:x[1],l:x[0]})),backgroundColor:'#14899b',pointRadius:6,pointHoverRadius:8}]);
+ /* insight dinamis */
+ const I=[];
+ if(!R.length){$('#ins').innerHTML='<div class="card">Tidak ada data untuk kombinasi filter ini.</div>';$('#tb').innerHTML='';return}
+ if(Y){const up=Y.d>0,prov=Y.y0===2024||Y.y1===2024;I.push(['Tren',(up?'Kejadian naik ':'Kejadian turun ')+f1(Math.abs(Y.d*100))+'% ('+nf(Y.old)+' → '+nf(Y.cur)+') pada '+Y.np+' provinsi sebanding, '+Y.y0+'→'+Y.y1,prov?'Salah satu periode adalah angka sementara 2024. Apakah angka final BPS/BNPB sudah diverifikasi sebelum menyimpulkan '+(up?'lonjakan':'penurunan')+'?':'Apakah kenaikan/penurunan ini selaras dengan curah hujan dan musim? Tinjau kesiapsiagaan sebelum musim hujan berikutnya.'])}
+ else I.push(['Tren','Perbandingan antar tahun belum tersedia','Pilih minimal dua tahun agar tren like-for-like dapat dihitung.']);
+ I.push(['Konsentrasi risiko',top3.map(x=>x[0]).join(', ')+' menyumbang '+f1(sh3)+'% dari seluruh kejadian terpilih','Apakah anggaran mitigasi dan sistem peringatan dini sudah diprioritaskan sebanding dengan konsentrasi ini?']);
+ const rg=[...grp(R,'w')].sort((a,b)=>b[1]-a[1]);
+ I.push(['Wilayah dominan',rg[0][0]+' memimpin dengan '+nf(rg[0][1])+' kejadian ('+f1(rg[0][1]/tot*100)+'%)',rg.length>1?'Wilayah terendah ('+rg[rg.length-1][0]+', '+nf(rg[rg.length-1][1])+') belum tentu aman. Apakah pelaporannya setara dengan wilayah lain?':'Satu wilayah dipilih; lepas filter untuk membandingkan.']);
+ if(Y){const g=Y.items.filter(x=>x.d>0).sort((a,b)=>b.d-a.d)[0],l=Y.items.filter(x=>x.d<0).sort((a,b)=>a.d-b.d)[0];
+  I.push(['Volatilitas',(g?g.p+' naik paling tajam (+'+nf(g.d)+')':'Tidak ada provinsi yang naik')+(l?'; '+l.p+' turun paling dalam ('+nf(l.d)+')':''),'Perubahan ekstrem sering mencerminkan satu episode hujan atau perbedaan pelaporan. Apa pemicunya di provinsi tersebut?'])}
+ const z=R.filter(r=>r.n===0).length;
+ I.push(['Kualitas data',z?z+' catatan bernilai 0 berasal dari tanda ‘–’ pada tabel BPS':'Tidak ada catatan bernilai 0 pada pilihan ini',S.bal?'Panel seimbang hanya mencakup 14 dari 25 provinsi. Apakah provinsi lain perlu disurvei agar cakupan nasional lengkap?':'Panel tidak seimbang aktif: total antar-tahun tidak sebanding. Apakah perlu kembali ke panel seimbang untuk perbandingan?']);
+ I.push(['Hotspot kronis','Provinsi dengan riwayat BNPB 2014–2023 tinggi cenderung tetap berada di puncak daftar','Apakah investasi struktural (tata ruang, penguatan lereng) lebih tepat daripada respons darurat berulang?']);
+ $('#ins').innerHTML=I.map(i=>'<div class="card"><div class="t">'+i[0]+'</div><b>'+esc(i[1])+'</b><p>'+esc(i[2])+'</p></div>').join('');
+ $('#tb').innerHTML=R.slice().sort((a,b)=>b.t-a.t||b.n-a.n).map(r=>'<tr><td>'+r.t+'</td><td>'+esc(r.p)+'</td><td>'+esc(r.w)+'</td><td class="n">'+nf(r.n)+'</td><td>'+r.k+'</td><td>'+(r.s==='Sementara'?'Angka sementara':r.s)+'</td><td><a href="'+esc(r.u)+'" target="_blank" rel="noopener">Sumber</a></td></tr>').join('');
+}
+render();
+</script>
+</body></html>
